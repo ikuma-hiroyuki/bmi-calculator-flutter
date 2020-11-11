@@ -19,6 +19,7 @@ class _InputPageState extends State<InputPage> {
     return Scaffold(
       appBar: AppBar(title: Text('BMI CALCULATOR')),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(
@@ -31,8 +32,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colour: selectedGender == Gender.male
-                        ? KactiveCardColor
-                        : KinActiveCardColor,
+                        ? KActiveCardColor
+                        : KInActiveCardColor,
                     cardChild: IconContent(
                       label: 'MALE',
                       icon: FontAwesomeIcons.mars,
@@ -47,8 +48,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colour: selectedGender == Gender.female
-                        ? KactiveCardColor
-                        : KinActiveCardColor,
+                        ? KActiveCardColor
+                        : KInActiveCardColor,
                     cardChild: IconContent(
                       label: 'FEMALE',
                       icon: FontAwesomeIcons.venus,
@@ -60,10 +61,28 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              colour: KactiveCardColor,
+              colour: KActiveCardColor,
               cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('HEIGHT',style: labelTextStyle,),
+                  Text(
+                    'HEIGHT',
+                    style: KLabelTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    children: [
+                      Text(
+                        '180',
+                        style: KNumberTextStyle,
+                      ),
+                      Text(
+                        'cm',
+                        style: KLabelTextStyle,
+                      )
+                    ],
+                  )
                 ],
               ),
             ),
@@ -71,18 +90,16 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               children: [
-                Expanded(
-                    child: ReusableCard(colour: KactiveCardColor)),
-                Expanded(
-                    child: ReusableCard(colour: KactiveCardColor)),
+                Expanded(child: ReusableCard(colour: KActiveCardColor)),
+                Expanded(child: ReusableCard(colour: KActiveCardColor)),
               ],
             ),
           ),
           Container(
-            color: KbottomContainerColor,
+            color: KBottomContainerColor,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: KbottomContainerHeight,
+            height: KBottomContainerHeight,
           )
         ],
       ),
