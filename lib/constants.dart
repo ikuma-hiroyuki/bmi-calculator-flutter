@@ -5,6 +5,7 @@ const KNumberTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
 );
+
 const double KBottomContainerHeight = 80;
 const Color KActiveCardColor = Color(0xFF1D1E33);
 const Color KInActiveCardColor = Color(0xFF111328);
