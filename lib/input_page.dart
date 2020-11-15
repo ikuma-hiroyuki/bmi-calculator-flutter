@@ -1,8 +1,8 @@
+import 'package:bmi_calculator/./icon_content.dart';
+import 'package:bmi_calculator/./reusable_card.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:bmi_calculator/./icon_content.dart';
-import 'package:bmi_calculator/./reusable_card.dart';
 
 enum Gender { male, female }
 
@@ -74,6 +74,7 @@ class _InputPageState extends State<InputPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
                     children: [
                       Text(
                         height.toString(),
@@ -116,46 +117,47 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                    child: ReusableCard(
-                  colour: KActiveCardColor,
-                  cardChild: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'WEIGHT',
-                        style: KLabelTextStyle,
-                      ),
-                      Text(
-                        weight.toString(),
-                        style: KNumberTextStyle,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          RoundIconButton(
-                            icon: FontAwesomeIcons.plus,
-                            onPressed: () {
-                              setState(() {
-                                weight++;
-                              });
-                            },
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          RoundIconButton(
-                            icon: FontAwesomeIcons.minus,
-                            onPressed: () {
-                              setState(() {
-                                weight--;
-                              });
-                            },
-                          )
-                        ],
-                      ),
-                    ],
+                  child: ReusableCard(
+                    colour: KActiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'WEIGHT',
+                          style: KLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: KNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                )),
+                ),
                 Expanded(child: ReusableCard(colour: KActiveCardColor)),
               ],
             ),
